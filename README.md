@@ -21,3 +21,9 @@ Python 3
 
 Jenkins (with Git + Docker access)
 
+team members:
+Chinmay Tikole - 22101B0008
+Sanjana Kurade - 22101B0001
+Sanika Jade - 22101B0016
+
+
