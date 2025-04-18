@@ -9,6 +9,7 @@ CD (Continuous Deployment): The Docker container is built and deployed using doc
 ![image](https://github.com/user-attachments/assets/5dab2364-bb1e-4da7-ac10-cb1b72be3aa1)
 
 ⚙️ Setup & Run Instructions
+
 ✅ 1. Prerequisites
 Install the following:
 
