@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git checkout 'https://github.com/Chinmaytikole/money_transfer-fraud-detection.git'
+                git 'https://github.com/Chinmaytikole/money_transfer-fraud-detection.git'
             }
         }
 
