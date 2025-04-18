@@ -1,10 +1,5 @@
 pipeline {
-    agent none
-
-    environment {
-        DOCKERHUB_USERNAME = credentials('dockerhub-username')
-        DOCKERHUB_PASSWORD = credentials('dockerhub-password')
-    }
+    agent any
 
     stages {
         stage('Checkout') {
@@ -28,9 +23,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 bat """
-                echo %DOCKERHUB_PASSWORD% | docker login -u %DOCKERHUB_USERNAME% --password-stdin
-                docker build -t %DOCKERHUB_USERNAME%/fraud-app:latest .
-                docker push %DOCKERHUB_USERNAME%/fraud-app:latest
+                docker build -t fraud-app:latest .
                 """
             }
         }
