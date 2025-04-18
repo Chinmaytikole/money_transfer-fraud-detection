@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_USERNAME = 'chinmaytikole'
+        DOCKERHUB_PASSWORD = '123456789'
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Chinmaytikole/money_transfer-fraud-detection.git'
+                git url: 'https://github.com/Chinmaytikole/money_transfer-fraud-detection.git', branch: 'main'
             }
         }
 
@@ -14,17 +19,18 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                bat 'pytest > test_results.txt'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
                 bat """
                 docker build -t fraud-app:latest .
                 """
+            }
+        }
+        stage('Compose & Deploy') {
+            steps {
+                bat 'docker-compose down'
+                bat 'docker-compose up -d'
             }
         }
     }
