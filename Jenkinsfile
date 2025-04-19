@@ -28,20 +28,7 @@ pipeline {
                 """
             }
         }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_HUB_USR', passwordVariable: 'DOCKER_HUB_PSW')]) {
-                    sh '''
-                        echo "$DOCKER_HUB_PSW" | docker login -u "$DOCKER_HUB_USR" --password-stdin
-                        docker push "$DOCKER_IMAGE"
-                    '''
-}
-
-                    }
-                }
-            }
-        }
+        
         stage('Compose & Deploy') {
             steps {
                 bat 'docker-compose down'
