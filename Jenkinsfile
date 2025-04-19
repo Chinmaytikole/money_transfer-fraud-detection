@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        DOCKER_IMAGE = 'chinmaytikole/devops_project:latest'
         DOCKERHUB_USERNAME = 'chinmaytikole'
         DOCKERHUB_PASSWORD = '123456789'
     }
@@ -27,6 +28,7 @@ pipeline {
                 """
             }
         }
+        
         stage('Compose & Deploy') {
             steps {
                 bat 'docker-compose down'
