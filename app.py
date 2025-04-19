@@ -38,7 +38,7 @@ def index():
             y_pred = model.predict(df_input)[0]
             y_prob = model.predict_proba(df_input)[0][1]
             results[model_name] = {
-                'prediction': 'Fraud V2' if y_pred == 1 else 'Legit',
+                'prediction': 'Fraud V2 ' if y_pred == 1 else 'Legit',
                 'probability': round(y_prob * 100, 2)
             }
 
